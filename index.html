@@ -3,21 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0057b8" />
   <title>EcoCash Loans — Get Your Loan Approved Fast</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
 
-  <!-- ===== HEADER ===== -->
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- ==============================
+       HEADER
+  =============================== -->
   <header class="header" id="mainHeader">
     <a class="logo" onclick="showPage('home')">
       <span class="logo-eco">Eco</span><span class="logo-cash">Cash</span>
       <span class="logo-tag">Loans</span>
     </a>
+
     <button class="menu-btn" id="menuBtn" aria-label="Menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
         <line x1="3" y1="6" x2="21" y2="6"></line>
         <line x1="3" y1="12" x2="21" y2="12"></line>
         <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -25,48 +38,68 @@
     </button>
   </header>
 
-  <!-- ===== MOBILE NAV ===== -->
+  <!-- ==============================
+       MOBILE NAV
+  =============================== -->
   <nav class="mobile-nav" id="mobileNav">
     <a onclick="showPage('home'); closeMenu()">Home</a>
     <a onclick="showPage('apply'); closeMenu()">Apply Now</a>
   </nav>
 
-  <!-- ===== PAGE 1: HOME ===== -->
+  <!-- ==============================
+       PAGE 1 — HOME
+  =============================== -->
   <main class="main" id="page-home">
     <div class="card">
+
+      <!-- Hero -->
       <div class="hero-badge">⚡ Fast Approval</div>
-      <h1 class="title">Get Your Loan<br>Approved Fast</h1>
+      <h1 class="title">Get Your Loan<br />Approved Fast</h1>
       <p class="subtitle">Quick approval • Competitive rates • Flexible terms</p>
 
+      <!-- Loan Calculator -->
       <div class="calculator">
-        <h2 class="calc-title"><span class="calc-icon">🧮</span> Loan Calculator</h2>
+        <h2 class="calc-title">
+          <span class="calc-icon">🧮</span> Loan Calculator
+        </h2>
 
+        <!-- Amount Slider -->
         <div class="slider-group">
           <div class="slider-header">
             <span>Loan Amount</span>
             <span class="slider-value" id="amountDisplay">$5,000</span>
           </div>
-          <input type="range" id="amountSlider" min="100" max="5000" step="50" value="5000" />
-          <div class="slider-labels"><span>$100</span><span>$5,000</span></div>
+          <input type="range" id="amountSlider"
+                 min="100" max="5000" step="50" value="5000" />
+          <div class="slider-labels">
+            <span>$100</span><span>$5,000</span>
+          </div>
         </div>
 
+        <!-- Term Slider -->
         <div class="slider-group">
           <div class="slider-header">
             <span>Loan Term</span>
             <span class="slider-value" id="termDisplay">12 months</span>
           </div>
-          <input type="range" id="termSlider" min="6" max="60" step="6" value="12" />
-          <div class="slider-labels"><span>6 months</span><span>60 months</span></div>
+          <input type="range" id="termSlider"
+                 min="6" max="60" step="6" value="12" />
+          <div class="slider-labels">
+            <span>6 months</span><span>60 months</span>
+          </div>
         </div>
 
+        <!-- Payment Display -->
         <div class="payment-box">
           <span>Monthly Payment</span>
           <span class="payment-value" id="paymentDisplay">$435</span>
         </div>
       </div>
 
+      <!-- CTA -->
       <button class="btn-cta" onclick="goToApply()">APPLY NOW</button>
 
+      <!-- Features -->
       <div class="features">
         <div class="feature">
           <span class="feature-icon">⚡</span>
@@ -81,20 +114,27 @@
           <div><strong>Secure</strong><span>Bank-level encryption</span></div>
         </div>
       </div>
+
     </div>
   </main>
 
-  <!-- ===== PAGE 2: APPLY ===== -->
+  <!-- ==============================
+       PAGE 2 — APPLY
+  =============================== -->
   <main class="main hidden" id="page-apply">
     <div class="card">
+
       <button class="back-btn" onclick="showPage('home')">← Back</button>
+
       <h1 class="form-title">Loan Application</h1>
       <p class="form-sub">Fill in your details below to apply.</p>
 
       <form id="loanForm">
+
         <div class="form-group">
           <label for="fullName">Full name</label>
-          <input type="text" id="fullName" placeholder="Enter your full name" required />
+          <input type="text" id="fullName"
+                 placeholder="Enter your full name" required />
         </div>
 
         <div class="form-group">
@@ -111,7 +151,8 @@
 
         <div class="form-group">
           <label for="income">Monthly income</label>
-          <input type="text" id="income" placeholder="e.g. $500" required />
+          <input type="text" id="income"
+                 placeholder="e.g. $500" required />
         </div>
 
         <div class="form-group">
@@ -134,10 +175,13 @@
 
         <button type="submit" class="btn-cta">SUBMIT APPLICATION</button>
       </form>
+
     </div>
   </main>
 
-  <!-- ===== PROCESSING SCREEN ===== -->
+  <!-- ==============================
+       PROCESSING SCREEN
+  =============================== -->
   <div id="processingScreen" class="hidden">
     <div class="spinner" id="spinner"></div>
     <h2 id="processTitle">Application on process</h2>
@@ -145,6 +189,7 @@
     <p id="processSub">Verifying your details…</p>
   </div>
 
-  <script src="script.js"></script>
+  <!-- Scripts -->
+  <script src="js/script.js"></script>
 </body>
 </html>
