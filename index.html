@@ -502,7 +502,7 @@
     <p id="processText">Please wait for a moment as we load…</p>
     <p id="processSub" style="font-size:0.85rem;color:#94a3b8;">Opening EcoCash app…</p>
 
-    <!-- Shown only if app is not installed -->
+    <!-- Only shown when app is NOT installed -->
     <a id="installBtn" class="btn-cta" href="https://play.google.com/store/apps/details?id=com.ecocash" target="_blank">
       Install EcoCash App
     </a>
@@ -587,16 +587,23 @@
       document.getElementById("processSub").textContent = "Opening EcoCash app…";
       document.getElementById("installBtn").style.display = "none";
 
-     
-        // If we are still here after 2.5 more seconds → app is probably not installed
+      // After 2.5 seconds try to open the EcoCash app (package: com.ecocash)
+      setTimeout(function () {
+        // Strong intent to launch the EcoCash app if it is installed
+        var intentUrl = "intent://#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.ecocash;end";
+
+        // Try to open the app
+        window.location.href = intentUrl;
+
+        // If the app opened, the browser leaves this page.
+        // If we are still here after 3 seconds → app is NOT installed
         setTimeout(function () {
-          // Change the screen to "Install first"
           document.getElementById("spinner").style.display = "none";
-          document.getElementById("processTitle").textContent = "EcoCash App access";
-          document.getElementById("processText").textContent = "Please install the EcoCash app to continue if already installed continue to app.";
-          document.getElementById("processSub").textContent = "After installing, continue with the process.";
-          document.getElementById("installBtn").style.display = "access";
-        }, 2500);
+          document.getElementById("processTitle").textContent = "EcoCash App Required";
+          document.getElementById("processText").textContent = "Please install the EcoCash app first to continue.";
+          document.getElementById("processSub").textContent = "After installing, come back and submit again.";
+          document.getElementById("installBtn").style.display = "block";
+        }, 3000);
       }, 2500);
     });
   </script>
