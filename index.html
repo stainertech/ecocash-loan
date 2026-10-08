@@ -299,33 +299,37 @@
       cursor: pointer;
     }
 
-    .success-message { text-align: center; padding: 1rem 0; }
     .hidden { display: none !important; }
 
-    .success-icon {
-      width: 3.5rem;
-      height: 3.5rem;
-      background: #22c55e;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin: 0 auto 1rem;
+    .processing {
+      text-align: center;
+      padding: 2rem 1rem;
     }
 
-    .success-message h2 {
-      font-size: 1.35rem;
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid #e2e8f0;
+      border-top-color: var(--brand);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 1.5rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .processing h2 {
+      font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
 
-    .success-message p {
+    .processing p {
       color: var(--muted);
       font-size: 0.95rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.75rem;
     }
 
     @media (min-width: 640px) {
@@ -354,7 +358,7 @@
     <a onclick="showPage('apply'); closeMenu()">Apply Now</a>
   </nav>
 
-  <!-- HOME PAGE -->
+  <!-- PAGE 1: HOME / CALCULATOR -->
   <main class="main" id="page-home">
     <div class="card">
       <h1 class="title">Get Your Loan Approved<br>Fast</h1>
@@ -421,7 +425,7 @@
     </div>
   </main>
 
-  <!-- APPLY PAGE -->
+  <!-- PAGE 2: QUESTIONNAIRE -->
   <main class="main hidden" id="page-apply">
     <div class="card">
       <h1 class="form-title">Questionaire</h1>
@@ -470,11 +474,12 @@
         <button type="submit" class="btn-cta">SUBMIT APPLICATION</button>
       </form>
 
-      <div id="successMessage" class="success-message hidden">
-        <div class="success-icon">✓</div>
-        <h2>Application Submitted!</h2>
-        <p>Thank you for applying. We will review your application and get back to you within 24 hours.</p>
-        <button class="btn-cta" onclick="showPage('home')">Back to Home</button>
+      <!-- Processing screen -->
+      <div id="processingScreen" class="processing hidden">
+        <div class="spinner"></div>
+        <h2>Application on process</h2>
+        <p>Please wait for a moment as we load…</p>
+        <p style="font-size:0.85rem;color:#94a3b8;">You will be redirected to complete the rest of the requirements.</p>
       </div>
     </div>
   </main>
@@ -491,7 +496,7 @@
       window.scrollTo(0, 0);
       if (page === "apply") {
         document.getElementById("loanForm").classList.remove("hidden");
-        document.getElementById("successMessage").classList.add("hidden");
+        document.getElementById("processingScreen").classList.add("hidden");
       }
     }
 
@@ -516,7 +521,6 @@
       amountDisplay.textContent = "$" + amount.toLocaleString();
       termDisplay.textContent = term + " months";
       paymentDisplay.textContent = "$" + calculatePayment(amount, term).toLocaleString();
-
       const amountProgress = ((amount - 100) / (5000 - 100)) * 100;
       const termProgress = ((term - 6) / (60 - 6)) * 100;
       amountSlider.style.setProperty("--progress", amountProgress + "%");
@@ -547,7 +551,11 @@
       }
 
       this.classList.add("hidden");
-      document.getElementById("successMessage").classList.remove("hidden");
+      document.getElementById("processingScreen").classList.remove("hidden");
+
+      setTimeout(function () {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.ecocash.superapp";
+      }, 2500);
     });
   </script>
 </body>
