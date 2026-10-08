@@ -1,907 +1,504 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Eco Cash Loans</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
-        body {
-            background: #ffffff;
-            color: #17201a;
-        }
-
-        /* NAVIGATION */
-
-        header {
-            width: 100%;
-            background: white;
-            border-bottom: 1px solid #eeeeee;
-        }
-
-        .navbar {
-            max-width: 1150px;
-            margin: auto;
-            padding: 18px 25px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 25px;
-            font-weight: 800;
-            color: #00843d;
-        }
-
-        .logo span {
-            color: #f5a800;
-        }
-
-        nav {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        .login {
-            border: 1px solid #00843d;
-            padding: 10px 20px;
-            border-radius: 7px;
-            color: #00843d;
-        }
-
-        .apply-btn {
-            background: #00843d;
-            color: white;
-            border: none;
-            padding: 12px 22px;
-            border-radius: 7px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* HERO */
-
-        .hero {
-            background: linear-gradient(
-                135deg,
-                #f1fbf5,
-                #ffffff
-            );
-
-            padding: 75px 25px;
-        }
-
-        .hero-container {
-            max-width: 1150px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 52px;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #00843d;
-        }
-
-        .hero p {
-            font-size: 18px;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .main-btn {
-            background: #00843d;
-            color: white;
-            border: none;
-            padding: 15px 28px;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .secondary-btn {
-            background: white;
-            border: 1px solid #00843d;
-            color: #00843d;
-            padding: 15px 28px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        /* CALCULATOR */
-
-        .calculator {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-
-            box-shadow:
-                0 15px 45px rgba(0,0,0,0.08);
-        }
-
-        .calculator h2 {
-            margin-bottom: 8px;
-        }
-
-        .calculator-subtitle {
-            color: #777;
-            margin-bottom: 25px;
-        }
-
-        .amount-display {
-            font-size: 32px;
-            font-weight: bold;
-            color: #00843d;
-            margin-bottom: 20px;
-        }
-
-        input[type="range"] {
-            width: 100%;
-            accent-color: #00843d;
-        }
-
-        .range-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            color: #777;
-            margin-top: 8px;
-        }
-
-        .terms {
-            margin-top: 25px;
-        }
-
-        .terms label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        select {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ddd;
-            border-radius: 7px;
-            font-size: 15px;
-        }
-
-        .payment {
-            background: #f1fbf5;
-            padding: 18px;
-            margin-top: 25px;
-            border-radius: 8px;
-        }
-
-        .payment small {
-            color: #666;
-        }
-
-        .payment strong {
-            display: block;
-            font-size: 25px;
-            color: #00843d;
-            margin-top: 5px;
-        }
-
-        .calculator button {
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        /* FEATURES */
-
-        .features {
-            padding: 70px 25px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title h2 {
-            font-size: 35px;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #777;
-        }
-
-        .feature-container {
-            max-width: 1100px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .feature {
-            text-align: center;
-            padding: 30px 20px;
-            border: 1px solid #eeeeee;
-            border-radius: 12px;
-        }
-
-        .feature-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .feature h3 {
-            margin-bottom: 10px;
-        }
-
-        .feature p {
-            color: #777;
-            line-height: 1.5;
-        }
-
-        /* HOW IT WORKS */
-
-        .how {
-            background: #f7faf8;
-            padding: 70px 25px;
-        }
-
-        .steps {
-            max-width: 1000px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-
-        .step {
-            text-align: center;
-        }
-
-        .number {
-            width: 50px;
-            height: 50px;
-            margin: auto auto 15px;
-
-            border-radius: 50%;
-            background: #00843d;
-            color: white;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-weight: bold;
-            font-size: 20px;
-        }
-
-        .step p {
-            color: #777;
-            margin-top: 8px;
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: #10251a;
-            color: white;
-            padding: 45px 25px;
-        }
-
-        .footer-container {
-            max-width: 1100px;
-            margin: auto;
-
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr;
-            gap: 40px;
-        }
-
-        footer h3 {
-            margin-bottom: 15px;
-        }
-
-        footer p {
-            color: #b9c4bd;
-            line-height: 1.6;
-        }
-
-        footer a {
-            display: block;
-            color: #b9c4bd;
-            text-decoration: none;
-            margin-bottom: 10px;
-        }
-
-        .copyright {
-            text-align: center;
-            border-top: 1px solid #304238;
-            margin-top: 35px;
-            padding-top: 20px;
-            color: #9ba89f;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 800px) {
-
-            nav {
-                display: none;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 50px 20px;
-            }
-
-            .hero h1 {
-                font-size: 40px;
-            }
-
-            .feature-container {
-                grid-template-columns: 1fr;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 450px) {
-
-            .hero h1 {
-                font-size: 34px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .calculator {
-                padding: 22px;
-            }
-        }
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoCash Loans — Get Your Loan Approved Fast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f0f4f8;
+      --card-bg: #ffffff;
+      --secondary: #f1f5f9;
+      --text: #0f172a;
+      --muted: #64748b;
+      --brand: #2563eb;
+      --brand-red: #ef4444;
+      --border: #e2e8f0;
+      --gradient-start: #6366f1;
+      --gradient-end: #a855f7;
+      --shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
+    }
+    body {
+      font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      background: var(--secondary);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .logo {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      cursor: pointer;
+    }
+    .logo-eco { color: var(--brand); }
+    .logo-cash { color: var(--brand-red); }
+    .menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      padding: 0.25rem;
+      display: flex;
+      align-items: center;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      padding: 0.75rem 1.25rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+    .mobile-nav a:hover { background: var(--secondary); }
+    .main {
+      padding: 1.5rem 1rem;
+      display: flex;
+      justify-content: center;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 1.25rem;
+      padding: 1.75rem 1.5rem;
+      max-width: 28rem;
+      width: 100%;
+      box-shadow: var(--shadow);
+    }
+    .title {
+      text-align: center;
+      font-size: 1.75rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .calculator {
+      margin-top: 1.5rem;
+      background: var(--secondary);
+      border-radius: 0.875rem;
+      padding: 1.25rem;
+    }
+    .calc-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+    .slider-group { margin-top: 1.25rem; }
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .slider-value {
+      color: var(--brand);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      margin-top: 0.75rem;
+      outline: none;
+      cursor: pointer;
+      background: linear-gradient(to right, #1e293b 0%, #1e293b var(--progress, 100%), #cbd5e1 var(--progress, 100%), #cbd5e1 100%);
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid #1e293b;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid #1e293b;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+    .payment-box {
+      margin-top: 1.25rem;
+      background: white;
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .payment-value {
+      color: var(--brand);
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .btn-cta {
+      display: block;
+      width: 100%;
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border: none;
+      border-radius: 0.625rem;
+      background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+      color: white;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+      letter-spacing: 0.02em;
+    }
+    .btn-cta:hover { opacity: 0.95; transform: translateY(-1px); }
+    .btn-cta:active { transform: translateY(0); }
+    .features {
+      margin-top: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .feature-icon {
+      font-size: 1.35rem;
+      width: 1.75rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .feature div {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .feature strong { font-size: 0.95rem; font-weight: 700; }
+    .feature span { font-size: 0.85rem; color: var(--muted); }
+    .form-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 0.5rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: white;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+    .form-group input::placeholder { color: #94a3b8; }
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    .processing-message { text-align: center; padding: 2rem 0; }
+    .hidden { display: none !important; }
+    .spinner {
+      width: 3rem;
+      height: 3rem;
+      border: 4px solid #e2e8f0;
+      border-top-color: var(--brand);
+      border-radius: 50%;
+      margin: 0 auto 1.25rem;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    .processing-message h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .processing-message p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    @media (min-width: 640px) {
+      .card { padding: 2rem 1.75rem; }
+      .title { font-size: 1.9rem; }
+    }
+  </style>
 </head>
-
-
 <body>
+  <header class="header">
+    <a class="logo" onclick="showPage('home')">
+      <span class="logo-eco">Eco</span><span class="logo-cash">Cash</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </header>
+  <nav class="mobile-nav" id="mobileNav">
+    <a onclick="showPage('home'); closeMenu()">Home</a>
+    <a onclick="showPage('apply'); closeMenu()">Apply Now</a>
+  </nav>
 
-
-<!-- NAVIGATION -->
-
-<header>
-
-    <div class="navbar">
-
-        <div class="logo">
-            Eco<span>Cash</span>
+  <!-- PAGE 1: HOME -->
+  <main class="main" id="page-home">
+    <div class="card">
+      <h1 class="title">Get Your Loan Approved<br>Fast</h1>
+      <p class="subtitle">Quick approval • Competitive rates • Flexible terms</p>
+      <div class="calculator">
+        <h2 class="calc-title">Loan Calculator</h2>
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>Loan Amount</span>
+            <span class="slider-value" id="amountDisplay">$5,000</span>
+          </div>
+          <input type="range" id="amountSlider" min="100" max="5000" step="50" value="5000" />
+          <div class="slider-labels">
+            <span>$100</span>
+            <span>$5,000</span>
+          </div>
         </div>
-
-        <nav>
-
-            <a href="#home">Home</a>
-
-            <a href="#features">
-                Features
-            </a>
-
-            <a href="#how">
-                How It Works
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-            <a href="#" class="login">
-                Login
-            </a>
-
-            <button class="apply-btn"
-                    onclick="applyNow()">
-                Apply Now
-            </button>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-
-    <div class="hero-container">
-
-
-        <div>
-
-            <h1>
-                Get Your Loan
-                <span>Approved Fast</span>
-            </h1>
-
-            <p>
-                Access affordable loans quickly and easily.
-                Apply online, get approved, and receive your
-                funds without unnecessary delays.
-            </p>
-
-            <div class="hero-buttons">
-
-                <button
-                    class="main-btn"
-                    onclick="applyNow()">
-                    APPLY NOW
-                </button>
-
-                <button
-                    class="secondary-btn"
-                    onclick="scrollToCalculator()">
-                    CALCULATE LOAN
-                </button>
-
-            </div>
-
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>Loan Term</span>
+            <span class="slider-value" id="termDisplay">12 months</span>
+          </div>
+          <input type="range" id="termSlider" min="6" max="60" step="6" value="12" />
+          <div class="slider-labels">
+            <span>6 months</span>
+            <span>60 months</span>
+          </div>
         </div>
-
-
-
-        <!-- LOAN CALCULATOR -->
-
-        <div class="calculator"
-             id="calculator">
-
-            <h2>
-                Loan Calculator
-            </h2>
-
-            <p class="calculator-subtitle">
-                Calculate your estimated monthly payment
-            </p>
-
-
-            <div class="amount-display">
-                $<span id="amount">
-                    500
-                </span>
-            </div>
-
-
-            <input
-                type="range"
-                id="loanAmount"
-                min="100"
-                max="10000"
-                step="100"
-                value="500"
-                oninput="calculateLoan()"
-            >
-
-
-            <div class="range-labels">
-
-                <span>
-                    $100
-                </span>
-
-                <span>
-                    $10,000
-                </span>
-
-            </div>
-
-
-            <div class="terms">
-
-                <label>
-                    Loan Term
-                </label>
-
-                <select
-                    id="loanTerm"
-                    onchange="calculateLoan()">
-
-                    <option value="3">
-                        3 Months
-                    </option>
-
-                    <option value="6">
-                        6 Months
-                    </option>
-
-                    <option value="12">
-                        12 Months
-                    </option>
-
-                    <option value="18">
-                        18 Months
-                    </option>
-
-                    <option value="24">
-                        24 Months
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="payment">
-
-                <small>
-                    Estimated Monthly Payment
-                </small>
-
-                <strong>
-                    $<span id="monthlyPayment">
-                        172.50
-                    </span>
-                </strong>
-
-            </div>
-
-
-            <button
-                class="main-btn"
-                onclick="applyNow()">
-
-                APPLY FOR THIS LOAN
-
-            </button>
-
+        <div class="payment-box">
+          <span>Monthly Payment</span>
+          <span class="payment-value" id="paymentDisplay">$435</span>
         </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- FEATURES -->
-
-<section class="features"
-         id="features">
-
-    <div class="section-title">
-
-        <h2>
-            Why Choose EcoCash?
-        </h2>
-
-        <p>
-            Simple, transparent and convenient lending
-        </p>
-
-    </div>
-
-
-    <div class="feature-container">
-
-
+      </div>
+      <button class="btn-cta" onclick="goToApply()">APPLY NOW</button>
+      <div class="features">
         <div class="feature">
-
-            <div class="feature-icon">
-                ⚡
-            </div>
-
-            <h3>
-                Fast Approval
-            </h3>
-
-            <p>
-                Apply online and get your loan
-                application processed quickly.
-            </p>
-
+          <span class="feature-icon">⚡</span>
+          <div>
+            <strong>Fast Approval</strong>
+            <span>Within 24 hours</span>
+          </div>
         </div>
-
-
         <div class="feature">
-
-            <div class="feature-icon">
-                💰
-            </div>
-
-            <h3>
-                Competitive Rates
-            </h3>
-
-            <p>
-                Get access to affordable loan
-                options with transparent terms.
-            </p>
-
+          <span class="feature-icon">💰</span>
+          <div>
+            <strong>Low Rates</strong>
+            <span>From 8%</span>
+          </div>
         </div>
-
-
         <div class="feature">
-
-            <div class="feature-icon">
-                🔒
-            </div>
-
-            <h3>
-                Secure
-            </h3>
-
-            <p>
-                Your personal information is handled
-                securely and responsibly.
-            </p>
-
+          <span class="feature-icon">🔒</span>
+          <div>
+            <strong>Secure</strong>
+            <span>Bank-level</span>
+          </div>
         </div>
-
-
+      </div>
     </div>
+  </main>
 
-</section>
+  <!-- PAGE 2: QUESTIONNAIRE -->
+  <main class="main hidden" id="page-apply">
+    <div class="card">
+      <h1 class="form-title">Questionnaire</h1>
+      <form id="loanForm">
+        <div class="form-group">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" placeholder="Enter your full name" required />
+        </div>
+        <div class="form-group">
+          <label for="employment">Employment status</label>
+          <select id="employment" required>
+            <option value="" disabled selected>Select your employment status</option>
+            <option value="employed-full-time">Employed full-time</option>
+            <option value="employed-part-time">Employed part-time</option>
+            <option value="self-employed">Self-employed</option>
+            <option value="unemployed">Unemployed</option>
+            <option value="student">Student</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="income">Monthly income</label>
+          <input type="text" id="income" placeholder="Enter your monthly income" required />
+        </div>
+        <div class="form-group">
+          <label for="loanAmount">Loan amount</label>
+          <input type="text" id="loanAmount" value="5000" required />
+        </div>
+        <div class="form-group">
+          <label for="repayment">Repayment period (months)</label>
+          <select id="repayment" required>
+            <option value="6">6 months</option>
+            <option value="12" selected>12 months</option>
+            <option value="18">18 months</option>
+            <option value="24">24 months</option>
+            <option value="36">36 months</option>
+            <option value="48">48 months</option>
+            <option value="60">60 months</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-cta">SUBMIT APPLICATION</button>
+      </form>
 
-
-
-<!-- HOW IT WORKS -->
-
-<section class="how"
-         id="how">
-
-    <div class="section-title">
-
-        <h2>
-            How It Works
-        </h2>
-
-        <p>
-            Getting started is simple
-        </p>
-
+      <!-- Processing state (replaces success message) -->
+      <div id="processingMessage" class="processing-message hidden">
+        <div class="spinner"></div>
+        <h2>Application on process</h2>
+        <p>Please wait a moment as we load…</p>
+      </div>
     </div>
-
-
-    <div class="steps">
-
-
-        <div class="step">
-
-            <div class="number">
-                1
-            </div>
-
-            <h3>
-                Apply
-            </h3>
-
-            <p>
-                Complete our simple online
-                application.
-            </p>
-
-        </div>
-
-
-        <div class="step">
-
-            <div class="number">
-                2
-            </div>
-
-            <h3>
-                Get Approved
-            </h3>
-
-            <p>
-                Your application is reviewed
-                quickly.
-            </p>
-
-        </div>
-
-
-        <div class="step">
-
-            <div class="number">
-                3
-            </div>
-
-            <h3>
-                Receive Funds
-            </h3>
-
-            <p>
-                Approved funds can then be
-                disbursed to you.
-            </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- FOOTER -->
-
-<footer id="contact">
-
-    <div class="footer-container">
-
-
-        <div>
-
-            <h3>
-                EcoCash
-            </h3>
-
-            <p>
-                Simple and convenient online
-                lending solutions.
-            </p>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Quick Links
-            </h3>
-
-            <a href="#home">
-                Home
-            </a>
-
-            <a href="#features">
-                Features
-            </a>
-
-            <a href="#how">
-                How It Works
-            </a>
-
-        </div>
-
-
-        <div>
-
-            <h3>
-                Contact
-            </h3>
-
-            <p>
-                Email: support@example.com
-            </p>
-
-            <p>
-                Phone: +000 000 000
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="copyright">
-
-        © 2026 EcoCash. All rights reserved.
-
-    </div>
-
-</footer>
-
-
-
-<script>
-
-function calculateLoan() {
-
-    let amount =
-        document.getElementById(
-            "loanAmount"
-        ).value;
-
-    let term =
-        document.getElementById(
-            "loanTerm"
-        ).value;
-
-
-    document.getElementById(
-        "amount"
-    ).innerText = amount;
-
-
-    /*
-       Demo interest rate:
-       5% total interest
-    */
-
-    let total =
-        amount * 1.05;
-
-
-    let monthly =
-        total / term;
-
-
-    document.getElementById(
-        "monthlyPayment"
-    ).innerText =
-        monthly.toFixed(2);
-}
-
-
-
-function scrollToCalculator() {
-
-    document.getElementById(
-        "calculator"
-    ).scrollIntoView({
-        behavior: "smooth"
+  </main>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileNav = document.getElementById("mobileNav");
+    menuBtn.addEventListener("click", () => mobileNav.classList.toggle("open"));
+    function closeMenu() { mobileNav.classList.remove("open"); }
+
+    function showPage(page) {
+      document.getElementById("page-home").classList.toggle("hidden", page !== "home");
+      document.getElementById("page-apply").classList.toggle("hidden", page !== "apply");
+      window.scrollTo(0, 0);
+      if (page === "apply") {
+        document.getElementById("loanForm").classList.remove("hidden");
+        document.getElementById("processingMessage").classList.add("hidden");
+      }
+    }
+
+    const amountSlider = document.getElementById("amountSlider");
+    const termSlider = document.getElementById("termSlider");
+    const amountDisplay = document.getElementById("amountDisplay");
+    const termDisplay = document.getElementById("termDisplay");
+    const paymentDisplay = document.getElementById("paymentDisplay");
+    const ANNUAL_RATE = 0.08;
+
+    function calculatePayment(principal, months) {
+      const r = ANNUAL_RATE / 12;
+      if (r === 0) return principal / months;
+      return Math.round(
+        (principal * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1)
+      );
+    }
+
+    function updateCalculator() {
+      const amount = parseInt(amountSlider.value, 10);
+      const term = parseInt(termSlider.value, 10);
+      amountDisplay.textContent = "$" + amount.toLocaleString();
+      termDisplay.textContent = term + " months";
+      paymentDisplay.textContent = "$" + calculatePayment(amount, term).toLocaleString();
+      const amountProgress = ((amount - 100) / (5000 - 100)) * 100;
+      const termProgress = ((term - 6) / (60 - 6)) * 100;
+      amountSlider.style.setProperty("--progress", amountProgress + "%");
+      termSlider.style.setProperty("--progress", termProgress + "%");
+    }
+
+    amountSlider.addEventListener("input", updateCalculator);
+    termSlider.addEventListener("input", updateCalculator);
+    updateCalculator();
+
+    function goToApply() {
+      document.getElementById("loanAmount").value = amountSlider.value;
+      document.getElementById("repayment").value = termSlider.value;
+      showPage("apply");
+    }
+
+    document.getElementById("loanForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const fullName = document.getElementById("fullName").value.trim();
+      const employment = document.getElementById("employment").value;
+      const income = document.getElementById("income").value.trim();
+      const loanAmount = document.getElementById("loanAmount").value.trim();
+      const repayment = document.getElementById("repayment").value;
+
+      if (!fullName || !employment || !income || !loanAmount || !repayment) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      // Hide form, show processing message
+      this.classList.add("hidden");
+      document.getElementById("processingMessage").classList.remove("hidden");
+
+      // After a short delay, open the EcoCash SuperApp Play Store page
+      setTimeout(function () {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.ecocash.superapp";
+      }, 2500); // 2.5 seconds
     });
-
-}
-
-
-
-function applyNow() {
-
-    alert(
-        "Loan application page coming next!"
-    );
-
-}
-
-</script>
-
-
+  </script>
 </body>
 </html>
