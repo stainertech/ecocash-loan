@@ -592,9 +592,7 @@
         var appPackage = "com.ecocash";
         var intentUrl = "intent://#Intent;package=" + appPackage + ";scheme=https;end";
 
-        // Try to open the app
-        window.location.href = intentUrl;
-
+       
         // If we are still here after 2.5 more seconds → app is probably not installed
         setTimeout(function () {
           // Change the screen to "Install first"
