@@ -8,348 +8,107 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --bg: #f0f4f8;
-      --card-bg: #ffffff;
-      --secondary: #f1f5f9;
-      --text: #0f172a;
-      --muted: #64748b;
-      --brand: #2563eb;
-      --brand-red: #ef4444;
-      --border: #e2e8f0;
-      --gradient-start: #6366f1;
-      --gradient-end: #a855f7;
+      --bg: #f0f4f8; --card-bg: #ffffff; --secondary: #f1f5f9;
+      --text: #0f172a; --muted: #64748b; --brand: #2563eb; --brand-red: #ef4444;
+      --border: #e2e8f0; --gradient-start: #6366f1; --gradient-end: #a855f7;
       --shadow: 0 4px 24px rgba(15, 23, 42, 0.06);
     }
-
     body {
       font-family: "Poppins", ui-sans-serif, system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.5;
+      background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-
     .header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.25rem;
-      background: var(--secondary);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 50;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.25rem; background: var(--secondary);
+      border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50;
     }
-
-    .logo {
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      cursor: pointer;
-    }
-    .logo-eco { color: var(--brand); }
-    .logo-cash { color: var(--brand-red); }
-
-    .menu-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: var(--text);
-      padding: 0.25rem;
-      display: flex;
-      align-items: center;
-    }
-
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      background: white;
-      border-bottom: 1px solid var(--border);
-      padding: 0.5rem 0;
-    }
+    .logo { text-decoration: none; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; cursor: pointer; }
+    .logo-eco { color: var(--brand); } .logo-cash { color: var(--brand-red); }
+    .menu-btn { background: none; border: none; cursor: pointer; color: var(--text); padding: 0.25rem; display: flex; }
+    .mobile-nav { display: none; flex-direction: column; background: white; border-bottom: 1px solid var(--border); padding: 0.5rem 0; }
     .mobile-nav.open { display: flex; }
-    .mobile-nav a {
-      padding: 0.75rem 1.25rem;
-      text-decoration: none;
-      color: var(--text);
-      font-weight: 600;
-      font-size: 0.95rem;
-      cursor: pointer;
-    }
+    .mobile-nav a { padding: 0.75rem 1.25rem; text-decoration: none; color: var(--text); font-weight: 600; font-size: 0.95rem; cursor: pointer; }
     .mobile-nav a:hover { background: var(--secondary); }
-
-    .main {
-      padding: 1.5rem 1rem;
-      display: flex;
-      justify-content: center;
-    }
-
+    .main { padding: 1.5rem 1rem; display: flex; justify-content: center; }
     .card {
-      background: var(--card-bg);
-      border-radius: 1.25rem;
-      padding: 1.75rem 1.5rem;
-      max-width: 28rem;
-      width: 100%;
-      box-shadow: var(--shadow);
+      background: var(--card-bg); border-radius: 1.25rem; padding: 1.75rem 1.5rem;
+      max-width: 28rem; width: 100%; box-shadow: var(--shadow);
     }
-
-    .title {
-      text-align: center;
-      font-size: 1.75rem;
-      font-weight: 800;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    .subtitle {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
-    .calculator {
-      margin-top: 1.5rem;
-      background: var(--secondary);
-      border-radius: 0.875rem;
-      padding: 1.25rem;
-    }
-
-    .calc-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-    }
-
+    .title { text-align: center; font-size: 1.75rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; }
+    .subtitle { text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 0.5rem; }
+    .calculator { margin-top: 1.5rem; background: var(--secondary); border-radius: 0.875rem; padding: 1.25rem; }
+    .calc-title { font-size: 1.15rem; font-weight: 700; }
     .slider-group { margin-top: 1.25rem; }
-
-    .slider-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .slider-value {
-      color: var(--brand);
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
+    .slider-header { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.95rem; }
+    .slider-value { color: var(--brand); font-weight: 700; font-size: 1.1rem; }
     input[type="range"] {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 100%;
-      height: 6px;
-      border-radius: 999px;
-      margin-top: 0.75rem;
-      outline: none;
-      cursor: pointer;
+      -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px;
+      margin-top: 0.75rem; outline: none; cursor: pointer;
       background: linear-gradient(to right, #1e293b 0%, #1e293b var(--progress, 100%), #cbd5e1 var(--progress, 100%), #cbd5e1 100%);
     }
-
     input[type="range"]::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: white;
-      border: 2px solid #1e293b;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-      cursor: pointer;
+      -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%;
+      background: white; border: 2px solid #1e293b; box-shadow: 0 1px 3px rgba(0,0,0,0.2); cursor: pointer;
     }
-
     input[type="range"]::-moz-range-thumb {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: white;
-      border: 2px solid #1e293b;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-      cursor: pointer;
+      width: 18px; height: 18px; border-radius: 50%; background: white;
+      border: 2px solid #1e293b; box-shadow: 0 1px 3px rgba(0,0,0,0.2); cursor: pointer;
     }
-
-    .slider-labels {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.35rem;
-    }
-
+    .slider-labels { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem; }
     .payment-box {
-      margin-top: 1.25rem;
-      background: white;
-      border-radius: 0.75rem;
-      padding: 1rem 1.25rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      font-size: 0.95rem;
+      margin-top: 1.25rem; background: white; border-radius: 0.75rem; padding: 1rem 1.25rem;
+      display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 0.95rem;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
-
-    .payment-value {
-      color: var(--brand);
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-
+    .payment-value { color: var(--brand); font-size: 1.5rem; font-weight: 700; }
     .btn-cta {
-      display: block;
-      width: 100%;
-      margin-top: 1.5rem;
-      padding: 1rem;
-      border: none;
-      border-radius: 0.625rem;
+      display: block; width: 100%; margin-top: 1.5rem; padding: 1rem; border: none; border-radius: 0.625rem;
       background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
-      color: white;
-      font-family: inherit;
-      font-size: 1.05rem;
-      font-weight: 700;
-      text-align: center;
-      text-decoration: none;
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.15s;
-      letter-spacing: 0.02em;
+      color: white; font-family: inherit; font-size: 1.05rem; font-weight: 700; text-align: center;
+      text-decoration: none; cursor: pointer; transition: opacity 0.2s, transform 0.15s; letter-spacing: 0.02em;
     }
     .btn-cta:hover { opacity: 0.95; transform: translateY(-1px); }
     .btn-cta:active { transform: translateY(0); }
-
-    .features {
-      margin-top: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .feature {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .feature-icon {
-      font-size: 1.35rem;
-      width: 1.75rem;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
-    .feature div {
-      display: flex;
-      align-items: baseline;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-
+    .features { margin-top: 1.75rem; display: flex; flex-direction: column; gap: 1rem; }
+    .feature { display: flex; align-items: center; gap: 0.75rem; }
+    .feature-icon { font-size: 1.35rem; width: 1.75rem; text-align: center; flex-shrink: 0; }
+    .feature div { display: flex; align-items: baseline; gap: 0.4rem; flex-wrap: wrap; }
     .feature strong { font-size: 0.95rem; font-weight: 700; }
     .feature span { font-size: 0.85rem; color: var(--muted); }
-
-    .form-title {
-      font-size: 1.5rem;
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.02em;
-    }
-
+    .form-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
     .form-group { margin-bottom: 1.25rem; }
-
-    .form-group label {
-      display: block;
-      font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 0.4rem;
+    .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .form-group input, .form-group select {
+      width: 100%; padding: 0.75rem 1rem; border: 1.5px solid #cbd5e1; border-radius: 0.5rem;
+      font-family: inherit; font-size: 0.95rem; background: white; color: var(--text); outline: none;
     }
-
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1.5px solid #cbd5e1;
-      border-radius: 0.5rem;
-      font-family: inherit;
-      font-size: 0.95rem;
-      background: white;
-      color: var(--text);
-      outline: none;
-      transition: border-color 0.15s;
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--brand); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
     }
-
-    .form-group input:focus,
-    .form-group select:focus {
-      border-color: var(--brand);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-    }
-
     .form-group input::placeholder { color: #94a3b8; }
-
     .form-group select {
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 0.75rem center;
-      padding-right: 2.5rem;
-      cursor: pointer;
+      background-repeat: no-repeat; background-position: right 0.75rem center; padding-right: 2.5rem; cursor: pointer;
     }
-
     .hidden { display: none !important; }
 
-    /* FULL SCREEN processing overlay */
+    /* FULL SCREEN */
     #processingScreen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #f0f4f8;
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: #f0f4f8; z-index: 9999; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; padding: 2rem;
     }
-
     .spinner {
-      width: 56px;
-      height: 56px;
-      border: 5px solid #e2e8f0;
-      border-top-color: #2563eb;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin-bottom: 1.75rem;
+      width: 56px; height: 56px; border: 5px solid #e2e8f0; border-top-color: #2563eb;
+      border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 1.75rem;
     }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    #processingScreen h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #0f172a;
-    }
-
-    #processingScreen p {
-      color: #64748b;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
-    #installBtn {
-      display: none;
-      margin-top: 1.5rem;
-      max-width: 280px;
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #processingScreen h2 { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; color: #0f172a; }
+    #processingScreen p { color: #64748b; font-size: 1rem; margin-bottom: 0.5rem; }
+    #installBtn { display: none; margin-top: 1.5rem; max-width: 280px; }
 
     @media (min-width: 640px) {
       .card { padding: 2rem 1.75rem; }
@@ -377,7 +136,7 @@
     <a onclick="showPage('apply'); closeMenu()">Apply Now</a>
   </nav>
 
-  <!-- PAGE 1: HOME / CALCULATOR -->
+  <!-- PAGE 1 -->
   <main class="main" id="page-home">
     <div class="card">
       <h1 class="title">Get Your Loan Approved<br>Fast</h1>
@@ -385,31 +144,22 @@
 
       <div class="calculator">
         <h2 class="calc-title">Loan Calculator</h2>
-
         <div class="slider-group">
           <div class="slider-header">
             <span>Loan Amount</span>
             <span class="slider-value" id="amountDisplay">$5,000</span>
           </div>
           <input type="range" id="amountSlider" min="100" max="5000" step="50" value="5000" />
-          <div class="slider-labels">
-            <span>$100</span>
-            <span>$5,000</span>
-          </div>
+          <div class="slider-labels"><span>$100</span><span>$5,000</span></div>
         </div>
-
         <div class="slider-group">
           <div class="slider-header">
             <span>Loan Term</span>
             <span class="slider-value" id="termDisplay">12 months</span>
           </div>
           <input type="range" id="termSlider" min="6" max="60" step="6" value="12" />
-          <div class="slider-labels">
-            <span>6 months</span>
-            <span>60 months</span>
-          </div>
+          <div class="slider-labels"><span>6 months</span><span>60 months</span></div>
         </div>
-
         <div class="payment-box">
           <span>Monthly Payment</span>
           <span class="payment-value" id="paymentDisplay">$435</span>
@@ -419,42 +169,22 @@
       <button class="btn-cta" onclick="goToApply()">APPLY NOW</button>
 
       <div class="features">
-        <div class="feature">
-          <span class="feature-icon">⚡</span>
-          <div>
-            <strong>Fast Approval</strong>
-            <span>Within 24 hours</span>
-          </div>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">💰</span>
-          <div>
-            <strong>Low Rates</strong>
-            <span>From 8%</span>
-          </div>
-        </div>
-        <div class="feature">
-          <span class="feature-icon">🔒</span>
-          <div>
-            <strong>Secure</strong>
-            <span>Bank-level</span>
-          </div>
-        </div>
+        <div class="feature"><span class="feature-icon">⚡</span><div><strong>Fast Approval</strong><span>Within 24 hours</span></div></div>
+        <div class="feature"><span class="feature-icon">💰</span><div><strong>Low Rates</strong><span>From 8%</span></div></div>
+        <div class="feature"><span class="feature-icon">🔒</span><div><strong>Secure</strong><span>Bank-level</span></div></div>
       </div>
     </div>
   </main>
 
-  <!-- PAGE 2: QUESTIONNAIRE -->
+  <!-- PAGE 2 -->
   <main class="main hidden" id="page-apply">
     <div class="card">
       <h1 class="form-title">Questionaire</h1>
-
       <form id="loanForm">
         <div class="form-group">
           <label for="fullName">Full name</label>
           <input type="text" id="fullName" placeholder="Enter your full name" required />
         </div>
-
         <div class="form-group">
           <label for="employment">Employment status</label>
           <select id="employment" required>
@@ -466,17 +196,14 @@
             <option value="student">Student</option>
           </select>
         </div>
-
         <div class="form-group">
           <label for="income">Monthly income</label>
           <input type="text" id="income" placeholder="Enter your monthly income" required />
         </div>
-
         <div class="form-group">
           <label for="loanAmount">Loan amount</label>
           <input type="text" id="loanAmount" value="5000" required />
         </div>
-
         <div class="form-group">
           <label for="repayment">Repayment period (months)</label>
           <select id="repayment" required>
@@ -489,20 +216,17 @@
             <option value="60">60 months</option>
           </select>
         </div>
-
         <button type="submit" class="btn-cta">SUBMIT APPLICATION</button>
       </form>
     </div>
   </main>
 
-  <!-- FULL SCREEN PROCESSING -->
+  <!-- FULL SCREEN -->
   <div id="processingScreen" class="hidden">
     <div class="spinner" id="spinner"></div>
     <h2 id="processTitle">Application on process</h2>
     <p id="processText">Please wait for a moment as we load…</p>
     <p id="processSub" style="font-size:0.85rem;color:#94a3b8;">Opening EcoCash app…</p>
-
-    <!-- Only direct user when app is NOT installed..when the app is installed automatically open the app-->
     <a id="installBtn" class="btn-cta" href="https://play.google.com/store/apps/details?id=com.ecocash" target="_blank">
       Install EcoCash App
     </a>
@@ -532,9 +256,7 @@
     function calculatePayment(principal, months) {
       const r = ANNUAL_RATE / 12;
       if (r === 0) return principal / months;
-      return Math.round(
-        (principal * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1)
-      );
+      return Math.round((principal * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1));
     }
 
     function updateCalculator() {
@@ -543,10 +265,8 @@
       amountDisplay.textContent = "$" + amount.toLocaleString();
       termDisplay.textContent = term + " months";
       paymentDisplay.textContent = "$" + calculatePayment(amount, term).toLocaleString();
-      const amountProgress = ((amount - 100) / (5000 - 100)) * 100;
-      const termProgress = ((term - 6) / (60 - 6)) * 100;
-      amountSlider.style.setProperty("--progress", amountProgress + "%");
-      termSlider.style.setProperty("--progress", termProgress + "%");
+      amountSlider.style.setProperty("--progress", ((amount - 100) / 4900 * 100) + "%");
+      termSlider.style.setProperty("--progress", ((term - 6) / 54 * 100) + "%");
     }
 
     amountSlider.addEventListener("input", updateCalculator);
@@ -562,46 +282,38 @@
     document.getElementById("loanForm").addEventListener("submit", function (e) {
       e.preventDefault();
 
-      const fullName = document.getElementById("fullName").value.trim();
-      const employment = document.getElementById("employment").value;
-      const income = document.getElementById("income").value.trim();
-      const loanAmount = document.getElementById("loanAmount").value.trim();
-      const repayment = document.getElementById("repayment").value;
-
-      if (!fullName || !employment || !income || !loanAmount || !repayment) {
+      if (!document.getElementById("fullName").value.trim() ||
+          !document.getElementById("employment").value ||
+          !document.getElementById("income").value.trim() ||
+          !document.getElementById("loanAmount").value.trim() ||
+          !document.getElementById("repayment").value) {
         alert("Please fill in all fields.");
         return;
       }
 
-      // Show full-screen loading
+      // Full screen loading
       document.getElementById("page-home").classList.add("hidden");
       document.getElementById("page-apply").classList.add("hidden");
       document.getElementById("mainHeader").style.display = "none";
       document.getElementById("mobileNav").classList.remove("open");
       document.getElementById("processingScreen").classList.remove("hidden");
 
-      // Reset UI
       document.getElementById("spinner").style.display = "block";
       document.getElementById("processTitle").textContent = "Application on process";
       document.getElementById("processText").textContent = "Please wait for a moment as we load…";
       document.getElementById("processSub").textContent = "Opening EcoCash app…";
       document.getElementById("installBtn").style.display = "none";
 
-      // After 2.5 seconds try to open the EcoCash app (package: com.ecocash)
       setTimeout(function () {
-        // Strong intent to launch the EcoCash app if it is installed
-        var intentUrl = "intent://#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.ecocash;end";
+        // Try to open EcoCash app (com.ecocash)
+        window.location.href = "intent://#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;package=com.ecocash;end";
 
-        // Try to open the app
-        window.location.href = intentUrl;
-
-        // If the app opened, the browser leaves this page.
-        // If we are still here after 3 seconds → app is NOT installed
+        // If still on this page after 3 seconds → app is not installed
         setTimeout(function () {
           document.getElementById("spinner").style.display = "none";
           document.getElementById("processTitle").textContent = "EcoCash App Required";
-          document.getElementById("processText").textContent = "Please install the EcoCash app first to continue.";
-          document.getElementById("processSub").textContent = "After installing, come back and submit again.";
+          document.getElementById("processText").textContent = "You must install the EcoCash app first.";
+          document.getElementById("processSub").textContent = "After installing, come back here and press Submit again. The app will then open automatically.";
           document.getElementById("installBtn").style.display = "block";
         }, 3000);
       }, 2500);
