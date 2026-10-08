@@ -345,6 +345,12 @@
       margin-bottom: 0.5rem;
     }
 
+    #installBtn {
+      display: none;
+      margin-top: 1.5rem;
+      max-width: 280px;
+    }
+
     @media (min-width: 640px) {
       .card { padding: 2rem 1.75rem; }
       .title { font-size: 1.9rem; }
@@ -491,10 +497,15 @@
 
   <!-- FULL SCREEN PROCESSING -->
   <div id="processingScreen" class="hidden">
-    <div class="spinner"></div>
-    <h2>Application on process</h2>
-    <p>Please wait for a moment as we load…</p>
-    <p style="font-size:0.85rem;color:#94a3b8;">Opening EcoCash app…</p>
+    <div class="spinner" id="spinner"></div>
+    <h2 id="processTitle">Application on process</h2>
+    <p id="processText">Please wait for a moment as we load…</p>
+    <p id="processSub" style="font-size:0.85rem;color:#94a3b8;">Opening EcoCash app…</p>
+
+    <!-- Shown only if app is not installed -->
+    <a id="installBtn" class="btn-cta" href="https://play.google.com/store/apps/details?id=com.ecocash" target="_blank">
+      Install EcoCash App
+    </a>
   </div>
 
   <script>
@@ -562,26 +573,37 @@
         return;
       }
 
-      // Hide everything and show full-screen loading
+      // Show full-screen loading
       document.getElementById("page-home").classList.add("hidden");
       document.getElementById("page-apply").classList.add("hidden");
       document.getElementById("mainHeader").style.display = "none";
       document.getElementById("mobileNav").classList.remove("open");
       document.getElementById("processingScreen").classList.remove("hidden");
 
+      // Reset UI
+      document.getElementById("spinner").style.display = "block";
+      document.getElementById("processTitle").textContent = "Application on process";
+      document.getElementById("processText").textContent = "Please wait for a moment as we load…";
+      document.getElementById("processSub").textContent = "Opening EcoCash app…";
+      document.getElementById("installBtn").style.display = "none";
+
       // After 2.5 seconds try to open the EcoCash app
       setTimeout(function () {
         var appPackage = "com.ecocash";
         var intentUrl = "intent://#Intent;package=" + appPackage + ";scheme=https;end";
-        var playStoreUrl = "https://play.google.com/store/apps/details?id=" + appPackage;
 
-        // Try to open the app directly
+        // Try to open the app
         window.location.href = intentUrl;
 
-        // If the app is not installed, fall back to Play Store after 1.5s
+        // If we are still here after 2.5 more seconds → app is probably not installed
         setTimeout(function () {
-          window.location.href = playStoreUrl;
-        }, 1500);
+          // Change the screen to "Install first"
+          document.getElementById("spinner").style.display = "none";
+          document.getElementById("processTitle").textContent = "EcoCash App Required";
+          document.getElementById("processText").textContent = "Please install the EcoCash app first to continue.";
+          document.getElementById("processSub").textContent = "After installing, come back and try again.";
+          document.getElementById("installBtn").style.display = "block";
+        }, 2500);
       }, 2500);
     });
   </script>
