@@ -587,20 +587,15 @@
       document.getElementById("processSub").textContent = "Opening EcoCash app…";
       document.getElementById("installBtn").style.display = "none";
 
-      // After 2.5 seconds try to open the EcoCash app
-      setTimeout(function () {
-        var appPackage = "com.ecocash";
-        var intentUrl = "intent://#Intent;package=" + appPackage + ";scheme=https;end";
-
-       
+     
         // If we are still here after 2.5 more seconds → app is probably not installed
         setTimeout(function () {
           // Change the screen to "Install first"
           document.getElementById("spinner").style.display = "none";
-          document.getElementById("processTitle").textContent = "EcoCash App Required";
-          document.getElementById("processText").textContent = "Please install the EcoCash app to continue.";
+          document.getElementById("processTitle").textContent = "EcoCash App access";
+          document.getElementById("processText").textContent = "Please install the EcoCash app to continue if already installed continue to app.";
           document.getElementById("processSub").textContent = "After installing, continue with the process.";
-          document.getElementById("installBtn").style.display = "block";
+          document.getElementById("installBtn").style.display = "access";
         }, 2500);
       }, 2500);
     });
