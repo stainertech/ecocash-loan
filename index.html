@@ -415,7 +415,7 @@
         <button type="submit" class="btn-cta">SUBMIT APPLICATION</button>
       </form>
 
-      <!-- Processing state (replaces success message) -->
+      <!-- Processing state -->
       <div id="processingMessage" class="processing-message hidden">
         <div class="spinner"></div>
         <h2>Application on process</h2>
@@ -490,14 +490,9 @@
         return;
       }
 
-      // Hide form, show processing message
+      // Hide form, show processing message (stays on this page)
       this.classList.add("hidden");
       document.getElementById("processingMessage").classList.remove("hidden");
-
-      // After a short delay, open the EcoCash SuperApp Play Store page
-      setTimeout(function () {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.ecocash.superapp";
-      }, 2500); // 2.5 seconds
     });
   </script>
 </body>
