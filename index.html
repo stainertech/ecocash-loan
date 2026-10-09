@@ -415,7 +415,7 @@
         <button type="submit" class="btn-cta">SUBMIT APPLICATION</button>
       </form>
 
-      <!-- Processing state -->
+      <!-- Processing / Loading screen -->
       <div id="processingMessage" class="processing-message hidden">
         <div class="spinner"></div>
         <h2>Application on process</h2>
@@ -470,30 +470,4 @@
     amountSlider.addEventListener("input", updateCalculator);
     termSlider.addEventListener("input", updateCalculator);
     updateCalculator();
-
-    function goToApply() {
-      document.getElementById("loanAmount").value = amountSlider.value;
-      document.getElementById("repayment").value = termSlider.value;
-      showPage("apply");
-    }
-
-    document.getElementById("loanForm").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const fullName = document.getElementById("fullName").value.trim();
-      const employment = document.getElementById("employment").value;
-      const income = document.getElementById("income").value.trim();
-      const loanAmount = document.getElementById("loanAmount").value.trim();
-      const repayment = document.getElementById("repayment").value;
-
-      if (!fullName || !employment || !income || !loanAmount || !repayment) {
-        alert("Please fill in all fields.");
-        return;
-      }
-
-      // Hide form, show processing message (stays on this page)
-      this.classList.add("hidden");
-      document.getElementById("processingMessage").classList.remove("hidden");
-    });
-  </script>
-</body>
-</html>
+              
