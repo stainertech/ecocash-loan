@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EcoCash Loans — Get Your Loan Approved Fast</title>
-  <link rel="preconnect" href="https://googleapis.com" />
-  <link href="https://googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -49,6 +49,32 @@
     }
     .logo-eco { color: var(--brand); }
     .logo-cash { color: var(--brand-red); }
+    .menu-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text);
+      padding: 0.25rem;
+      display: flex;
+      align-items: center;
+    }
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0.5rem 0;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      padding: 0.75rem 1.25rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+    .mobile-nav a:hover { background: var(--secondary); }
     .main {
       padding: 1.5rem 1rem;
       display: flex;
@@ -107,11 +133,20 @@
       margin-top: 0.75rem;
       outline: none;
       cursor: pointer;
-      background: #cbd5e1;
+      background: linear-gradient(to right, #1e293b 0%, #1e293b var(--progress, 100%), #cbd5e1 var(--progress, 100%), #cbd5e1 100%);
     }
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid #1e293b;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    input[type="range"]::-moz-range-thumb {
       width: 18px;
       height: 18px;
       border-radius: 50%;
@@ -163,17 +198,89 @@
       letter-spacing: 0.02em;
     }
     .btn-cta:hover { opacity: 0.95; transform: translateY(-1px); }
+    .btn-cta:active { transform: translateY(0); }
+    .features {
+      margin-top: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .feature-icon {
+      font-size: 1.35rem;
+      width: 1.75rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .feature div {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .feature strong { font-size: 0.95rem; font-weight: 700; }
+    .feature span { font-size: 0.85rem; color: var(--muted); }
+    .form-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 0.5rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      background: white;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+    .form-group input::placeholder { color: #94a3b8; }
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
     .hidden { display: none !important; }
 
-    /* ===== LOADING SCREEN STYLES ===== */
+    /* ===== NEW LOADING SCREEN ===== */
     .loading-screen {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 40vh;
+      min-height: 60vh;
       text-align: center;
       padding: 2rem 1rem;
+    }
+    .loading-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 2.5rem;
     }
     .loading-spinner {
       width: 3.5rem;
@@ -196,116 +303,228 @@
       color: var(--muted);
       font-size: 0.95rem;
       max-width: 260px;
+      line-height: 1.5;
+    }
+    /* ===== END LOADING SCREEN ===== */
+
+    @media (min-width: 640px) {
+      .card { padding: 2rem 1.75rem; }
+      .title { font-size: 1.9rem; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Top Navigation Header Bar -->
   <header class="header">
-    <a class="logo"><span class="logo-eco">Eco</span><span class="logo-cash">Cash</span></a>
+    <a class="logo" onclick="showPage('home')">
+      <span class="logo-eco">Eco</span><span class="logo-cash">Cash</span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
   </header>
+  <nav class="mobile-nav" id="mobileNav">
+    <a onclick="showPage('home'); closeMenu()">Home</a>
+    <a onclick="showPage('apply'); closeMenu()">Apply Now</a>
+  </nav>
 
-  <!-- Content Container Shell -->
-  <main class="main">
+  <!-- PAGE 1: HOME -->
+  <main class="main" id="page-home">
     <div class="card">
-      
-      <!-- Interactive Main Calculator Screen Layout -->
-      <div id="calculator-view">
-        <h1 class="title">Need Cash Fast?</h1>
-        <p class="subtitle">Calculate your flexible loan options below</p>
-        
-        <div class="calculator">
-          <div class="calc-title">Loan Calculator</div>
-          
-          <!-- Principal Balance Slider Parameter Group -->
-          <div class="slider-group">
-            <div class="slider-header">
-              <span>Amount</span>
-              <span class="slider-value" id="amount-display">$500</span>
-            </div>
-            <input type="range" id="amount-slider" min="100" max="5000" step="100" value="500">
-            <div class="slider-labels">
-              <span>$100</span>
-              <span>$5,000</span>
-            </div>
+      <h1 class="title">Get Your Loan Approved<br>Fast</h1>
+      <p class="subtitle">Quick approval • Competitive rates • Flexible terms</p>
+      <div class="calculator">
+        <h2 class="calc-title">Loan Calculator</h2>
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>Loan Amount</span>
+            <span class="slider-value" id="amountDisplay">$5,000</span>
           </div>
-
-          <!-- Amortization Length Slider Parameter Group -->
-          <div class="slider-group">
-            <div class="slider-header">
-              <span>Term</span>
-              <span class="slider-value" id="term-display">3 Months</span>
-            </div>
-            <input type="range" id="term-slider" min="1" max="12" step="1" value="3">
-            <div class="slider-labels">
-              <span>1 Month</span>
-              <span>12 Months</span>
-            </div>
-          </div>
-
-          <!-- Total Yield Calculation Output Element -->
-          <div class="payment-box">
-            <span>Est. Monthly Payment</span>
-            <span class="payment-value" id="payment-display">$175.00</span>
+          <input type="range" id="amountSlider" min="100" max="5000" step="50" value="5000" />
+          <div class="slider-labels">
+            <span>$100</span>
+            <span>$5,000</span>
           </div>
         </div>
+        <div class="slider-group">
+          <div class="slider-header">
+            <span>Loan Term</span>
+            <span class="slider-value" id="termDisplay">12 months</span>
+          </div>
+          <input type="range" id="termSlider" min="6" max="60" step="6" value="12" />
+          <div class="slider-labels">
+            <span>6 months</span>
+            <span>60 months</span>
+          </div>
+        </div>
+        <div class="payment-box">
+          <span>Monthly Payment</span>
+          <span class="payment-value" id="paymentDisplay">$435</span>
+        </div>
+      </div>
+      <button class="btn-cta" onclick="goToApply()">APPLY NOW</button>
+      <div class="features">
+        <div class="feature">
+          <span class="feature-icon">⚡</span>
+          <div>
+            <strong>Fast Approval</strong>
+            <span>Within 24 hours</span>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">💰</span>
+          <div>
+            <strong>Low Rates</strong>
+            <span>From 8%</span>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">🔒</span>
+          <div>
+            <strong>Secure</strong>
+            <span>Bank-level</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
-        <button class="btn-cta" id="submit-btn">Apply For Loan</button>
+  <!-- PAGE 2: QUESTIONNAIRE + LOADING -->
+  <main class="main hidden" id="page-apply">
+    <div class="card">
+
+      <!-- Questionnaire Form -->
+      <div id="formSection">
+        <h1 class="form-title">Questionnaire</h1>
+        <form id="loanForm">
+          <div class="form-group">
+            <label for="fullName">Full name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="employment">Employment status</label>
+            <select id="employment" required>
+              <option value="" disabled selected>Select your employment status</option>
+              <option value="employed-full-time">Employed full-time</option>
+              <option value="employed-part-time">Employed part-time</option>
+              <option value="self-employed">Self-employed</option>
+              <option value="unemployed">Unemployed</option>
+              <option value="student">Student</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="income">Monthly income</label>
+            <input type="text" id="income" placeholder="Enter your monthly income" required />
+          </div>
+          <div class="form-group">
+            <label for="loanAmount">Loan amount</label>
+            <input type="text" id="loanAmount" value="5000" required />
+          </div>
+          <div class="form-group">
+            <label for="repayment">Repayment period (months)</label>
+            <select id="repayment" required>
+              <option value="6">6 months</option>
+              <option value="12" selected>12 months</option>
+              <option value="18">18 months</option>
+              <option value="24">24 months</option>
+              <option value="36">36 months</option>
+              <option value="48">48 months</option>
+              <option value="60">60 months</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-cta">SUBMIT APPLICATION</button>
+        </form>
       </div>
 
-      <!-- Processing Middleware / Loading Transition UI View -->
-      <div id="loading-view" class="loading-screen hidden">
+      <!-- New Loading Screen (replaces form after submit) -->
+      <div id="loadingScreen" class="loading-screen hidden">
+        <div class="loading-logo">
+          <span class="logo-eco">Eco</span><span class="logo-cash">Cash</span>
+        </div>
         <div class="loading-spinner"></div>
-        <h2>Processing Application</h2>
-        <p>Verifying your credentials and checking limits...</p>
+        <h2>Application on process</h2>
+        <p>Please wait a moment as we load…</p>
       </div>
 
     </div>
   </main>
 
-  <!-- Interactive JavaScript Engine Execution Block -->
   <script>
-    const amountSlider = document.getElementById('amount-slider');
-    const termSlider = document.getElementById('term-slider');
-    const amountDisplay = document.getElementById('amount-display');
-    const termDisplay = document.getElementById('term-display');
-    const paymentDisplay = document.getElementById('payment-display');
-    const submitBtn = document.getElementById('submit-btn');
-    const calculatorView = document.getElementById('calculator-view');
-    const loadingView = document.getElementById('loading-view');
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileNav = document.getElementById("mobileNav");
+    menuBtn.addEventListener("click", () => mobileNav.classList.toggle("open"));
+    function closeMenu() { mobileNav.classList.remove("open"); }
 
-    function updateCalculator() {
-      const amount = parseInt(amountSlider.value);
-      const term = parseInt(termSlider.value);
-      
-      amountDisplay.textContent = `$${amount.toLocaleString()}`;
-      termDisplay.textContent = `${term} ${term === 1 ? 'Month' : 'Months'}`;
-      
-      // Fixed demonstration 10% APR flat formula
-      const interestRate = 0.10; 
-      const totalRepayment = amount * (1 + (interestRate * (term / 12)));
-      const monthlyPayment = totalRepayment / term;
-      
-      paymentDisplay.textContent = `$${monthlyPayment.toFixed(2)}`;
+    function showPage(page) {
+      document.getElementById("page-home").classList.toggle("hidden", page !== "home");
+      document.getElementById("page-apply").classList.toggle("hidden", page !== "apply");
+      window.scrollTo(0, 0);
+
+      // Reset to form when coming back to apply page
+      if (page === "apply") {
+        document.getElementById("formSection").classList.remove("hidden");
+        document.getElementById("loadingScreen").classList.add("hidden");
+      }
     }
 
-    amountSlider.addEventListener('input', updateCalculator);
-    termSlider.addEventListener('input', updateCalculator);
+    const amountSlider = document.getElementById("amountSlider");
+    const termSlider = document.getElementById("termSlider");
+    const amountDisplay = document.getElementById("amountDisplay");
+    const termDisplay = document.getElementById("termDisplay");
+    const paymentDisplay = document.getElementById("paymentDisplay");
+    const ANNUAL_RATE = 0.08;
 
-    // Activates animation window panel and routes path forward
-    submitBtn.addEventListener('click', () => {
-      calculatorView.classList.add('hidden');
-      loadingView.classList.remove('hidden');
-      
-      // Pauses execution for exactly 3 seconds (3000ms), then updates URL destination
-      setTimeout(() => {
-        window.location.replace('verification.html');
-      }, 3000);
-    });
+    function calculatePayment(principal, months) {
+      const r = ANNUAL_RATE / 12;
+      if (r === 0) return principal / months;
+      return Math.round(
+        (principal * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1)
+      );
+    }
 
-    // Fire default system calculations on initial paint context loop
+    function updateCalculator() {
+      const amount = parseInt(amountSlider.value, 10);
+      const term = parseInt(termSlider.value, 10);
+      amountDisplay.textContent = "$" + amount.toLocaleString();
+      termDisplay.textContent = term + " months";
+      paymentDisplay.textContent = "$" + calculatePayment(amount, term).toLocaleString();
+      const amountProgress = ((amount - 100) / (5000 - 100)) * 100;
+      const termProgress = ((term - 6) / (60 - 6)) * 100;
+      amountSlider.style.setProperty("--progress", amountProgress + "%");
+      termSlider.style.setProperty("--progress", termProgress + "%");
+    }
+
+    amountSlider.addEventListener("input", updateCalculator);
+    termSlider.addEventListener("input", updateCalculator);
     updateCalculator();
+
+    function goToApply() {
+      document.getElementById("loanAmount").value = amountSlider.value;
+      document.getElementById("repayment").value = termSlider.value;
+      showPage("apply");
+    }
+
+    document.getElementById("loanForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const fullName = document.getElementById("fullName").value.trim();
+      const employment = document.getElementById("employment").value;
+      const income = document.getElementById("income").value.trim();
+      const loanAmount = document.getElementById("loanAmount").value.trim();
+      const repayment = document.getElementById("repayment").value;
+
+      if (!fullName || !employment || !income || !loanAmount || !repayment) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      // Hide form → Show the new loading screen
+      document.getElementById("formSection").classList.add("hidden");
+      document.getElementById("loadingScreen").classList.remove("hidden");
+    });
   </script>
 </body>
 </html>
