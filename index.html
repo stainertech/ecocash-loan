@@ -12,7 +12,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
 --bg:#f0f4f8;
---card-bg:#fff;
+--card-bg:#ffffff;
 --secondary:#f1f5f9;
 --text:#0f172a;
 --muted:#64748b;
@@ -21,7 +21,7 @@
 --border:#e2e8f0;
 --gradient-start:#6366f1;
 --gradient-end:#a855f7;
---shadow:0 4px 24px rgba(15,23,42,.06)
+--shadow:0 4px 24px rgba(15,23,42,.06);
 }
 body{
 font-family:"Poppins",ui-sans-serif,system-ui,sans-serif;
@@ -29,7 +29,7 @@ background:var(--bg);
 color:var(--text);
 min-height:100vh;
 line-height:1.5;
--webkit-font-smoothing:antialiased
+-webkit-font-smoothing:antialiased;
 }
 .header{
 display:flex;
@@ -40,14 +40,14 @@ background:var(--secondary);
 border-bottom:1px solid var(--border);
 position:sticky;
 top:0;
-z-index:50
+z-index:50;
 }
 .logo{
 text-decoration:none;
 font-size:1.5rem;
 font-weight:800;
 letter-spacing:-.02em;
-cursor:pointer
+cursor:pointer;
 }
 .logo-eco{color:var(--brand)}
 .logo-cash{color:var(--brand-red)}
@@ -58,14 +58,14 @@ cursor:pointer;
 color:var(--text);
 padding:.25rem;
 display:flex;
-align-items:center
+align-items:center;
 }
 .mobile-nav{
 display:none;
 flex-direction:column;
 background:white;
 border-bottom:1px solid var(--border);
-padding:.5rem 0
+padding:.5rem 0;
 }
 .mobile-nav.open{display:flex}
 .mobile-nav a{
@@ -74,13 +74,13 @@ text-decoration:none;
 color:var(--text);
 font-weight:600;
 font-size:.95rem;
-cursor:pointer
+cursor:pointer;
 }
 .mobile-nav a:hover{background:var(--secondary)}
 .main{
 padding:1.5rem 1rem;
 display:flex;
-justify-content:center
+justify-content:center;
 }
 .card{
 background:var(--card-bg);
@@ -88,26 +88,26 @@ border-radius:1.25rem;
 padding:1.75rem 1.5rem;
 max-width:28rem;
 width:100%;
-box-shadow:var(--shadow)
+box-shadow:var(--shadow);
 }
 .title{
 text-align:center;
 font-size:1.75rem;
 font-weight:800;
 line-height:1.2;
-letter-spacing:-.02em
+letter-spacing:-.02em;
 }
 .subtitle{
 text-align:center;
 color:var(--muted);
 font-size:.9rem;
-margin-top:.5rem
+margin-top:.5rem;
 }
 .calculator{
 margin-top:1.5rem;
 background:var(--secondary);
 border-radius:.875rem;
-padding:1.25rem
+padding:1.25rem;
 }
 .calc-title{font-size:1.15rem;font-weight:700}
 .slider-group{margin-top:1.25rem}
@@ -116,14 +116,15 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 font-weight:600;
-font-size:.95rem
+font-size:.95rem;
 }
 .slider-value{
 color:var(--brand);
 font-weight:700;
-font-size:1.1rem
+font-size:1.1rem;
 }
 input[type=range]{
+-webkit-appearance:none;
 appearance:none;
 width:100%;
 height:6px;
@@ -131,9 +132,10 @@ border-radius:999px;
 margin-top:.75rem;
 outline:none;
 cursor:pointer;
-background:linear-gradient(to right,#1e293b 0%,#1e293b var(--progress,100%),#cbd5e1 var(--progress,100%),#cbd5e1 100%)
+background:linear-gradient(to right,#1e293b 0%,#1e293b var(--progress,100%),#cbd5e1 var(--progress,100%),#cbd5e1 100%);
 }
 input[type=range]::-webkit-slider-thumb{
+-webkit-appearance:none;
 appearance:none;
 width:18px;
 height:18px;
@@ -141,7 +143,7 @@ border-radius:50%;
 background:white;
 border:2px solid #1e293b;
 box-shadow:0 1px 3px rgba(0,0,0,.2);
-cursor:pointer
+cursor:pointer;
 }
 input[type=range]::-moz-range-thumb{
 width:18px;
@@ -150,14 +152,14 @@ border-radius:50%;
 background:white;
 border:2px solid #1e293b;
 box-shadow:0 1px 3px rgba(0,0,0,.2);
-cursor:pointer
+cursor:pointer;
 }
 .slider-labels{
 display:flex;
 justify-content:space-between;
 font-size:.75rem;
 color:var(--muted);
-margin-top:.35rem
+margin-top:.35rem;
 }
 .payment-box{
 margin-top:1.25rem;
@@ -169,12 +171,12 @@ justify-content:space-between;
 align-items:center;
 font-weight:600;
 font-size:.95rem;
-box-shadow:0 1px 3px rgba(0,0,0,.04)
+box-shadow:0 1px 3px rgba(0,0,0,.04);
 }
 .payment-value{
 color:var(--brand);
 font-size:1.5rem;
-font-weight:700
+font-weight:700;
 }
 .btn-cta{
 display:block;
@@ -192,33 +194,32 @@ text-align:center;
 text-decoration:none;
 cursor:pointer;
 transition:opacity .2s,transform .15s;
-letter-spacing:.02em
+letter-spacing:.02em;
 }
 .btn-cta:hover{opacity:.95;transform:translateY(-1px)}
 .btn-cta:active{transform:translateY(0)}
-.btn-cta:disabled{opacity:.6;cursor:not-allowed}
 .features{
 margin-top:1.75rem;
 display:flex;
 flex-direction:column;
-gap:1rem
+gap:1rem;
 }
 .feature{
 display:flex;
 align-items:center;
-gap:.75rem
+gap:.75rem;
 }
 .feature-icon{
 font-size:1.35rem;
 width:1.75rem;
 text-align:center;
-flex-shrink:0
+flex-shrink:0;
 }
 .feature div{
 display:flex;
 align-items:baseline;
 gap:.4rem;
-flex-wrap:wrap
+flex-wrap:wrap;
 }
 .feature strong{font-size:.95rem;font-weight:700}
 .feature span{font-size:.85rem;color:var(--muted)}
@@ -226,14 +227,14 @@ flex-wrap:wrap
 font-size:1.5rem;
 font-weight:800;
 margin-bottom:1.5rem;
-letter-spacing:-.02em
+letter-spacing:-.02em;
 }
 .form-group{margin-bottom:1.25rem}
 .form-group label{
 display:block;
 font-weight:600;
 font-size:.9rem;
-margin-bottom:.4rem
+margin-bottom:.4rem;
 }
 .form-group input,.form-group select{
 width:100%;
@@ -245,11 +246,11 @@ font-size:.95rem;
 background:white;
 color:var(--text);
 outline:none;
-transition:border-color .15s
+transition:border-color .15s;
 }
 .form-group input:focus,.form-group select:focus{
 border-color:var(--brand);
-box-shadow:0 0 0 3px rgba(37,99,235,.12)
+box-shadow:0 0 0 3px rgba(37,99,235,.12);
 }
 .form-group input::placeholder{color:#94a3b8}
 .form-group select{
@@ -258,7 +259,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 background-repeat:no-repeat;
 background-position:right .75rem center;
 padding-right:2.5rem;
-cursor:pointer
+cursor:pointer;
 }
 .hidden{display:none!important}
 
@@ -270,13 +271,13 @@ align-items:center;
 justify-content:center;
 min-height:60vh;
 text-align:center;
-padding:2rem 1rem
+padding:2rem 1rem;
 }
 .loading-logo{
 font-size:2rem;
 font-weight:800;
 letter-spacing:-.02em;
-margin-bottom:2.5rem
+margin-bottom:2.5rem;
 }
 .loading-spinner{
 width:3.5rem;
@@ -285,25 +286,23 @@ border:4px solid #e2e8f0;
 border-top-color:var(--brand);
 border-radius:50%;
 animation:spin .85s linear infinite;
-margin-bottom:1.75rem
+margin-bottom:1.75rem;
 }
-@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes spin{
+to{transform:rotate(360deg)}
+}
 .loading-screen h2{
 font-size:1.35rem;
 font-weight:700;
-margin-bottom:.5rem
+margin-bottom:.5rem;
 }
 .loading-screen p{
 color:var(--muted);
 font-size:.95rem;
 max-width:260px;
-line-height:1.5
+line-height:1.5;
 }
-.loading-screen .status-message{
-margin-top:1rem;
-font-size:.85rem;
-color:var(--muted)
-}
+
 @media(min-width:640px){
 .card{padding:2rem 1.75rem}
 .title{font-size:1.9rem}
@@ -331,7 +330,7 @@ color:var(--muted)
 <a onclick="showPage('apply');closeMenu()">Apply Now</a>
 </nav>
 
-<!-- HOME PAGE -->
+<!-- PAGE 1: HOME -->
 <main class="main" id="page-home">
 <div class="card">
 
@@ -376,22 +375,31 @@ color:var(--muted)
 <div class="features">
 <div class="feature">
 <span class="feature-icon">⚡</span>
-<div><strong>Fast Approval</strong><span>Within 24 hours</span></div>
+<div>
+<strong>Fast Approval</strong>
+<span>Within 24 hours</span>
+</div>
 </div>
 <div class="feature">
 <span class="feature-icon">💰</span>
-<div><strong>Low Rates</strong><span>From 8%</span></div>
+<div>
+<strong>Low Rates</strong>
+<span>From 8%</span>
+</div>
 </div>
 <div class="feature">
 <span class="feature-icon">🔒</span>
-<div><strong>Secure</strong><span>Bank-level</span></div>
+<div>
+<strong>Secure</strong>
+<span>Bank-level</span>
+</div>
 </div>
 </div>
 
 </div>
 </main>
 
-<!-- APPLICATION PAGE -->
+<!-- PAGE 2: QUESTIONNAIRE + LOADING -->
 <main class="main hidden" id="page-apply">
 <div class="card">
 
@@ -419,12 +427,12 @@ color:var(--muted)
 
 <div class="form-group">
 <label for="income">Monthly income</label>
-<input type="number" id="income" min="0" step="any" placeholder="Enter your monthly income" required>
+<input type="text" id="income" placeholder="Enter your monthly income" required>
 </div>
 
 <div class="form-group">
 <label for="loanAmount">Loan amount</label>
-<input type="number" id="loanAmount" min="1" value="5000" required>
+<input type="text" id="loanAmount" value="5000" required>
 </div>
 
 <div class="form-group">
@@ -445,21 +453,14 @@ color:var(--muted)
 </form>
 </div>
 
-<!-- LOADING SCREEN -->
+<!-- SPINNING SCREEN -->
 <div id="loadingScreen" class="loading-screen hidden">
 <div class="loading-logo">
 <span class="logo-eco">Eco</span><span class="logo-cash">Cash</span>
 </div>
-
-<div class="loading-spinner" id="loadingSpinner"></div>
-
-<h2 id="loadingTitle">Application on process</h2>
-<p id="loadingText">Please wait a moment as we load…</p>
-<p class="status-message hidden" id="completionMessage"></p>
-
-<button class="btn-cta hidden" id="returnButton" onclick="showPage('home')">
-RETURN HOME
-</button>
+<div class="loading-spinner"></div>
+<h2>Application on process</h2>
+<p>Please wait a moment as we load…</p>
 </div>
 
 </div>
@@ -477,28 +478,15 @@ function closeMenu(){
 mobileNav.classList.remove("open");
 }
 
-let loadingTimer=null;
-
 function showPage(page){
 document.getElementById("page-home").classList.toggle("hidden",page!=="home");
 document.getElementById("page-apply").classList.toggle("hidden",page!=="apply");
 
 window.scrollTo(0,0);
 
-if(loadingTimer){
-clearTimeout(loadingTimer);
-loadingTimer=null;
-}
-
 if(page==="apply"){
 document.getElementById("formSection").classList.remove("hidden");
 document.getElementById("loadingScreen").classList.add("hidden");
-document.getElementById("loadingSpinner").classList.remove("hidden");
-document.getElementById("loadingTitle").textContent="Application on process";
-document.getElementById("loadingText").textContent="Please wait a moment as we load…";
-document.getElementById("completionMessage").classList.add("hidden");
-document.getElementById("returnButton").classList.add("hidden");
-document.getElementById("submitButton").disabled=false;
 }
 }
 
@@ -549,13 +537,11 @@ document.getElementById("repayment").value=termSlider.value;
 showPage("apply");
 }
 
-/* APPLICATION SUBMISSION AND LOADING FIX */
+/* SHOW SPINNING SCREEN WHEN FORM IS SUBMITTED */
 
 document.getElementById("loanForm").addEventListener("submit",function(e){
 
 e.preventDefault();
-
-if(!this.reportValidity())return;
 
 const fullName=document.getElementById("fullName").value.trim();
 const employment=document.getElementById("employment").value;
@@ -568,50 +554,11 @@ alert("Please fill in all fields.");
 return;
 }
 
-if(Number(income)<=0||Number(loanAmount)<=0){
-alert("Please enter valid positive amounts.");
-return;
-}
-
-/* Hide questionnaire */
 document.getElementById("formSection").classList.add("hidden");
 
-/* Display spinning screen */
-const loadingScreen=document.getElementById("loadingScreen");
-loadingScreen.classList.remove("hidden");
-
-document.getElementById("loadingSpinner").classList.remove("hidden");
-document.getElementById("loadingTitle").textContent="Application on process";
-document.getElementById("loadingText").textContent="Please wait a moment as we load…";
-document.getElementById("completionMessage").classList.add("hidden");
-document.getElementById("returnButton").classList.add("hidden");
-
-document.getElementById("submitButton").disabled=true;
+document.getElementById("loadingScreen").classList.remove("hidden");
 
 window.scrollTo(0,0);
-
-/* Stop the spinner after 3 seconds */
-loadingTimer=setTimeout(function(){
-
-document.getElementById("loadingSpinner").classList.add("hidden");
-
-document.getElementById("loadingTitle").textContent="Demo processing complete";
-
-document.getElementById("loadingText").textContent=
-"Your information has been entered into this prototype.";
-
-const message=document.getElementById("completionMessage");
-
-message.textContent=
-"No loan application has been transmitted. A secure, authorised backend connection is required to submit an actual application.";
-
-message.classList.remove("hidden");
-
-document.getElementById("returnButton").classList.remove("hidden");
-
-loadingTimer=null;
-
-},3000);
 
 });
 </script>
